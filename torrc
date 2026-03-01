@@ -1,0 +1,25 @@
+# Enable multiple ports for faster scrubbing
+SocksPort 9050
+SocksPort 9051
+SocksPort 9052
+SocksPort 9053
+SocksPort 9054
+
+# 1. How long Tor waits for the initial SOCKS handshake (Match this to your script!)
+SocksTimeout 600
+
+# 2. How long Tor spends trying to build a single circuit (increase if needed)
+# Since onions are slow, 60s is safer than 30s
+CircuitBuildTimeout 60
+
+# 3. Stop Tor from "learning" timeouts (keeps it consistent)
+LearnCircuitBuildTimeout 0
+
+# 4. How long a circuit stays alive before Tor picks a new one (keep high for scraping)
+MaxCircuitDirtiness 600
+
+# Keep connections alive during long transfers
+KeepalivePeriod 60
+
+# More concurrent circuits for parallel downloads
+MaxClientCircuitsPending 16
